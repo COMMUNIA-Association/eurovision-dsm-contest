@@ -1,0 +1,4 @@
+baseURL = "https://eurovision.communia-association.org"
+languageCode = "en-us"
+title = "Eurovision Copyright Contest"
+theme = "eurovision"

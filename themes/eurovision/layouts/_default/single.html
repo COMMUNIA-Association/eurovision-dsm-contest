@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<title>eurovision copyright contest - {{.Title}}</title>
+</head>
+<body>
+	
+	<!-- name of the Member State -->
+	
+	<h1>{{.Title}}</h1>
+	
+	<!-- implemntation status: either displays an implementation date (if provided) or otherwise notes that the MS has not implemented yet -->
+	
+	<div id="status">
+		{{ if .Params.implementation_date }}<p>{{.Title}} has fully implemented the provisions of the CDSM directive on {{ dateFormat "2 January 2006" .Params.implementation_date }}{{else}}<p>{{.Title}} has not fully implemented the provisions of the CDSM directive yet.</p>{{end}}
+	</div>
+	
+	<!-- overall score for the member state -->
+	
+	<div id="overall">
+		<p>Overall score: {{.Params.score}}</p>
+	</div>
+	
+	<!-- (if provided) special mention, which should be diplayed as a badge  -->
+	
+	{{ if .Params.special }}<div id="special"><p> Special: {{ .Params.special }}</p></div>{{end}}
+	
+	<!-- subscore for procedure + explanaition text  -->
+	
+	<div id="procedure">
+		<p>Procedure: {{ .Params.procedurescore }} points.</p>
+		<p>{{ .Params.proceduretext }}</p>
+	</div>
+	
+	<!-- subscore for Article17 + explanaition text  -->
+	
+	<div id="Article17">
+		<p>Article 17: {{ .Params.art17score }} points.</p>
+		<p>{{ .Params.art17text }}</p>
+	</div>
+	
+	<!-- subscore for Other provisions + explanaition text  -->
+	
+	<div id="Other">
+		<p>Other: {{ .Params.otherscore }} points.</p>
+		<p>{{ .Params.othertext }}</p>
+	</div>
+	
+	<!-- (if provided) subscore for Other provisions + explanaition text  -->
+	
+	{{ if .Params.bonustext }}<div id="Bonus">
+		<p>Bonus: {{ .Params.bonusscore }} points.</p>
+		<p>{{ .Params.bonustext }}</p>
+	</div>{{end}}
+	
+	<!-- main descriptive text  -->
+
+	<div id="main">
+	<p>{{- .Content -}}</div>
+	</div>
+	
+	<!-- text about local partners  -->
+	
+	<div id="partners">
+		<p>{{ .Params.localpartners | safeHTML }}
+	</div>
+	
+	<!-- link to the notion page for the member state -->
+	
+	<div id="notion">
+		<p>For more information please see <a href="{{ .Params.notionlink }}">our implementation tracking page for {{.Title}}</a></p>
+	</div>
+</body>
+</html>

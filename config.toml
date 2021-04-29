@@ -1,4 +1,4 @@
-baseURL = "https://eurovision.communia-association.org"
+baseURL = "https://voyantes.net/dev/eurovision/"
 languageCode = "en-us"
 title = "Eurovision Copyright Contest"
 theme = "eurovision"
